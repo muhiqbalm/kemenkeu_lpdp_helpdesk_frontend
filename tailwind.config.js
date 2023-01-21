@@ -13,6 +13,10 @@ module.exports = {
         hitam: "#333333",
         abu: "#A2A5AC",
         coklat: "#733535",
+        maroon : '#AF2D30',
+        darkred : '#733535',
+        gray: '#A7A7A7',
+        grey: '#B8BBC2',
       },
       borderRadius: {
         "4xl": "2rem",
