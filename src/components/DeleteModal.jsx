@@ -1,10 +1,21 @@
 import { useState } from "react";
+import axios from "axios"; 
+import {toast} from "react-toastify";
 
-export default function DeleteModal() {
+
+export default function DeleteModal(props) {
+    const deleteData = async () => {
+        await axios.delete(`http://localhost:5000//${props.id}`, {
+          headers: { "x-auth-token": props.token },
+        });
+        props.closeModal();
+        toast.success("Pertanyaan dan jawaban berhasil dihapus!");
+        setTimeout(() => window.location.reload(), 2000);
+      };
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <div className="flex items-center justify-center h-60">
+            {/*<div className="flex items-center justify-center h-60">
                 <button
                     className="px-6 py-3 text-purple-100 bg-purple-600 rounded-md"
                     type="button"
@@ -12,7 +23,8 @@ export default function DeleteModal() {
                 >
                     Open Modal
                 </button>
-            </div>
+            </div>*/}
+            
             {showModal ? (
                 <>
                     <div className="fixed inset-0 z-10 overflow-y-auto">
@@ -50,17 +62,14 @@ export default function DeleteModal() {
                                         <div className="items-center gap-2 mt-3 sm:flex">
                                             <button
                                                 className="w-full mt-2 p-2.5 flex-1 border text-black rounded-md outline-none ring-offset-2 ring-indigo-600 focus:ring-2 font-montserrat"
-                                                onClick={() =>
-                                                    setShowModal(false)
-                                                }
+                                                onClick={props.closeModal}
                                             >
                                                 Urungkan
                                             </button>
                                             <button
                                                 className="w-full mt-2 p-2.5 flex-1 text-white bg-red-600 rounded-md outline-none border ring-offset-2 ring-red-600 focus:ring-2 font-montserrat"
-                                                onClick={() =>
-                                                    setShowModal(false)
-                                                }
+                                                onClick={deleteData}
+                                                
                                             >
                                                 Hapus
                                             </button>
