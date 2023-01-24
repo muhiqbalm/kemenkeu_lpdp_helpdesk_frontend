@@ -1,6 +1,7 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,tsx}"],
   theme: {
+    
     extend: {
       spacing: {
         "8xl": "96rem",
@@ -33,6 +34,7 @@ module.exports = {
             letterSpacing: "-0.02em",
             fontWeight: "700",
           },
+    
         ],
       },
     },

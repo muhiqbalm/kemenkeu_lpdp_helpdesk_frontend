@@ -4,6 +4,8 @@ import { ToastContainer } from "react-toastify";
 import Dashboard from "./pages/Dashboard";
 import CreateQuestion from "./pages/CreateQuestion";
 import Login from "./components/Login";
+import Halaman404 from "./pages/Halaman404";
+import ListQuestion from "./pages/ListQuestion";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/create-question" element={<CreateQuestion />} />
+          <Route path="/list-question" element={<ListQuestion />} />
+          <Route path="/*" element={<Halaman404 />} />
         </Routes>
       </Router>
       <ToastContainer

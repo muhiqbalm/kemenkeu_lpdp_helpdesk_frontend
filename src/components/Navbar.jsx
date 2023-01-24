@@ -11,7 +11,7 @@ export default function Navbar() {
           <a href="/dashboard" className="hover:text-merah">
             Dashboard
           </a>
-          <a href="/dashboard" className="hover:text-merah">
+          <a href="/list-question" className="hover:text-merah">
             List Pertanyaan
           </a>
           <a href="/create-question" className="hover:text-merah">

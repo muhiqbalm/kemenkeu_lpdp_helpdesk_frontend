@@ -1,6 +1,8 @@
 import {React, useState, useEffect, useRef} from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast} from "react-toastify";
+import { BiEdit } from 'react-icons/bi';
+import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from "axios";
 import Navbar from "../components/Navbar";
 
@@ -56,42 +58,40 @@ const ListQuestion = () => {
  
 
                 <div className="pb-10">
-                  <table className="w-full table-auto text-left">
-                    <thead className="bg-gray border border-grey">
+                  <table className="w-full table-auto text-left shadow-lg bg-white border-separate-gray-200 table-auto">
                       <tr className="text-white font-bold">
-                        <th className="w-1/12 px-2">No.</th>
-                        <th className="w-1/2 py-3 px-2 text-center">Pertanyaan</th>
-                        <th className="w-1/2 text-center">Jawaban</th>
-                        <th className="w-1/12 ">Action</th>
+                        <th class="border px-15 py-1 bg-red-700 text-center">Pertanyaan</th>
+                        <th class="border px-8 py-1 bg-red-700 text-center">Jawaban</th>
+                        <th class="border px-8 py-1 bg-red-700 tet-center">Aksi</th>
                       </tr>
-                    </thead>
                     {question.map((dat, index) => {
                             return (
                               <tbody key={index}>
                                 <tr className="border border-grey">
-                                <td className="py-2 px-2 text-left">
-                                        {index+1}
-                                    </td>
                                     <td className="py-2 px-2 text-left">
                                         {dat.pertanyaan}
                                     </td>
                                     <td className="text-left">
                                         {dat.jawaban}
                                     </td>
-                                    <td className=" text-left">
+                                    <td className=" flex text-center items-center content-center justify-center">
+                                      
                                     {" "}
                                     <Link
                                       to={`EditPertanyaan/${dat._id}`}
-                                      className="font-bold text-slate-50 mr-2 bg-gray py-1 px-3 decoration-transparent hover:bg-grey hover:text-white"
+                                      className="flex items-center font-bold text-slate-50 mr-2 bg-gray py-1 px-5 decoration-transparent hover:bg-grey hover:text-white rounded"
+                                      
                                       onClick={() => setUpdate(dat)}
                                     >
+                                      <BiEdit color="white" size="20" />
                                       Edit
                                     </Link>
                                     <Link
                                         onClick={()=>(dat._id, dat.pertanyaan)}
-                                        className="font-bold text-slate-50 bg-red-600 py-1 px-2 decoration-transparent hover:bg-red-800 hover:text-red-400"
+                                        className="flex items-center font-bold text-slate-50 bg-red-700 py-1 px-3 decoration-transparent hover:bg-red-800 hover:text-red-400 rounded"
                                     >
-                                      Delete
+                                      <RiDeleteBin6Line color="white" size="20" />
+                                      Hapus
                 
                                     </Link>
                                     </td>
