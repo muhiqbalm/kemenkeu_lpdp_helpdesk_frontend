@@ -5,6 +5,7 @@ import { BiEdit } from 'react-icons/bi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import "../components/StyleList.css";
 
 const ListQuestion = () => {
       const [question, setQuestion] = useState([]); 
@@ -58,7 +59,7 @@ const ListQuestion = () => {
  
 
                 <div className="pb-10">
-                  <table className="w-full table-auto text-left shadow-lg bg-white border-separate-gray-200 table-auto">
+                  <table className="w-full table-auto text-left shadow-lg bg-white border-separate-gray table-auto">
                       <tr className="text-white font-bold">
                         <th class="border px-15 py-1 bg-red-700 text-center">Pertanyaan</th>
                         <th class="border px-8 py-1 bg-red-700 text-center">Jawaban</th>
@@ -66,8 +67,9 @@ const ListQuestion = () => {
                       </tr>
                     {question.map((dat, index) => {
                             return (
-                              <tbody key={index}>
-                                <tr className="border border-grey">
+                              <tbody key={index}
+                              >
+                                <tr className="border border-gray cursor-pointer duration-300 hover:bg-lightgray nth-child(even){bg-merah}">
                                     <td className="py-2 px-2 text-left">
                                         {dat.pertanyaan}
                                     </td>
@@ -79,7 +81,7 @@ const ListQuestion = () => {
                                     {" "}
                                     <Link
                                       to={`EditPertanyaan/${dat._id}`}
-                                      className="flex items-center font-bold text-slate-50 mr-2 bg-gray py-1 px-5 decoration-transparent hover:bg-grey hover:text-white rounded"
+                                      className="flex items-center justify-center content-center font-bold text-slate-50 mr-2 bg-gray py-1 px-5 decoration-transparent hover:bg-grey hover:text-white rounded"
                                       
                                       onClick={() => setUpdate(dat)}
                                     >
@@ -88,7 +90,7 @@ const ListQuestion = () => {
                                     </Link>
                                     <Link
                                         onClick={()=>(dat._id, dat.pertanyaan)}
-                                        className="flex items-center font-bold text-slate-50 bg-red-700 py-1 px-3 decoration-transparent hover:bg-red-800 hover:text-red-400 rounded"
+                                        className="flex items-center justify-center content center font-bold text-slate-50 bg-red-700 py-1 px-3 decoration-transparent hover:bg-red-800 hover:text-red-400 rounded"
                                     >
                                       <RiDeleteBin6Line color="white" size="20" />
                                       Hapus

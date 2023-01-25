@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,tsx}"],
+  variants: {
+    extend: {
+      backgroundColor: ['even'],
+    }
+  },
   theme: {
-    
     extend: {
       spacing: {
         "8xl": "96rem",
@@ -18,6 +22,7 @@ module.exports = {
         darkred: "#733535",
         gray: "#A7A7A7",
         grey: "#B8BBC2",
+        lightgray: "#F5F5F5",
       },
       borderRadius: {
         "4xl": "2rem",
