@@ -41,7 +41,7 @@ export default function Navbar(props) {
             Tambah Pertanyaan
           </button>
         </div>
-        <button className="bg-white border border-merah rounded-md px-5 py-1 font-semibold text-merah hover:bg-merah hover:text-white">
+        <button className="bg-white border border-biru rounded-md px-5 py-1 font-semibold text-biru hover:bg-biru hover:text-white">
           Logout
         </button>
       </div>

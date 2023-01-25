@@ -68,23 +68,23 @@ export default function ListQuestion(props) {
         ""
       )}
       <div className="grid grid-cols-3">
-        <p className="bg-white text-hitam p-5 text-justify border border-hitam">
+        <p className="bg-white text-hitam p-5 text-justify border border-biru-tua">
           {data.pertanyaan}
         </p>
-        <p className="bg-white text-hitam p-5 text-justify border border-hitam">
+        <p className="bg-white text-hitam p-5 text-justify border border-biru-tua">
           {data.jawaban}
         </p>
-        <div className="flex justify-center items-center gap-x-3 bg-white border border-hitam">
+        <div className="flex justify-center items-center gap-x-3 bg-white border border-biru-tua">
           <button
             onClick={() => setIsEditOpen(true)}
-            className="inline-flex bg-[#11F26B] items-center px-3 py-1 text-black rounded-md"
+            className="inline-flex bg-biru-tua items-center px-5 py-1 text-white rounded-md hover:bg-biru-muda"
           >
-            <FaEdit />
+            <FaEdit className="mr-[7px]"/>
             Edit
           </button>
           <button 
             onClick={()=> deleteData(props._id, props.pertanyaan)}
-            className="inline-flex bg-red-700 items-center px-3 py-1 text-white rounded-md hover:bg-red-500">
+            className="inline-flex bg-abu items-center px-3 py-1 text-white rounded-md hover:bg-abu-muda">
             <FaTrash className="mr-[7px]" />
             Hapus
           </button>
