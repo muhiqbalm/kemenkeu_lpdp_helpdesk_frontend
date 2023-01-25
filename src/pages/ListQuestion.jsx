@@ -14,7 +14,11 @@ const ListQuestion = () => {
 
       //END OF MODAL
 
+      const token = atob(Cookies.get("token"));
+
+
       useEffect(() => {
+        console.log(token);
         getQuestion();
         deleteQuestion();
       }, []); 
@@ -36,7 +40,14 @@ const ListQuestion = () => {
 
       const deleteQuestion = async (_id) => {
         try {
-          await axios.delete(`http://localhost:5000/question/${_id}`);
+          await axios.delete(`http://localhost:5000/question/${_id}`, 
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Headers": "x-access-token",
+              "x-auth-token": token,
+            },
+          });
           getQuestion();
         } catch (error) {
           console.log(error);
