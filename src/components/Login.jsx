@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import loginImg from "../assets/Login.svg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -8,21 +8,27 @@ import Cookies from "js-cookie";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [text, setText] = useState("");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setText("LOGIN");
+  }, []);
 
   const onSubmit = async () => {
     if (username === "" || password === "") {
       toast.error("Username dan password akun wajib diisi!");
       console.log("Username dan password akun wajib diisi!");
     } else {
+      setText("Loading...");
       axios
         .post("http://localhost:5000/agent/login", {
           username: username,
           password: password,
         })
         .then((res) => {
-          if (res.status === 200) {
+          if (res.status < 400) {
             toast.success("Login sukses!");
             const { token } = res.data;
             const tokenBase64 = btoa(token);
@@ -33,6 +39,7 @@ export default function Login() {
         .catch((err) => {
           console.log(err.response);
           toast.error(err.response.data.errors);
+          setText("LOGIN");
         });
     }
   };
@@ -73,7 +80,7 @@ export default function Login() {
             onClick={onSubmit}
             type="button"
           >
-            Login
+            {text}
           </button>
         </form>
       </div>

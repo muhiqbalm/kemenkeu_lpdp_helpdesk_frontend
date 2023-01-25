@@ -1,13 +1,14 @@
 import { React, useState, useEffect } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import UpdateQuestion from "../pages/UpdateQuestion";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
+import UpdateQuestion from "../pages/UpdateQuestion";
+import DeleteModal from "./DeleteModal";
 
 export default function ListQuestion(props) {
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [data, setData] = useState([]);
 
   function getData() {
@@ -17,53 +18,50 @@ export default function ListQuestion(props) {
     console.log(data);
   }
 
-  function deleteData () {
-  try {
-      axios.delete(`http://localhost:5000/question/${props.id}`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Headers": "x-access-token",
-        "x-auth-token": token,
-    },
-    }).then((res) => {
-      if (res.status < 400) {
-        toast.success("Data pertanyaan berhasil dihapus!");
-        console.log(res);
-      }
-    })
-    .catch((err) => {
-      console.log(err.response);
-      toast.error(err.response.data.message);
-    });
-    getData();
-  } catch (error) {
-    console.log(error);
+  function deleteData() {
+    try {
+      axios
+        .delete(`http://localhost:5000/question/${props.id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Headers": "x-access-token",
+            "x-auth-token": token,
+          },
+        })
+        .then((res) => {
+          if (res.status < 400) {
+            toast.success("Data pertanyaan berhasil dihapus!");
+            console.log(res);
+          }
+        })
+        .catch((err) => {
+          console.log(err.response);
+          toast.error(err.response.data.message);
+        });
+      getData();
+    } catch (error) {
+      console.log(error);
+    }
   }
-  };
 
   const token = atob(Cookies.get("token"));
-
 
   useEffect(() => {
     console.log(token);
     getData();
     //deleteData();
     console.log(data);
-  }, []); 
+  }, []);
 
   return (
     <>
       {isEditOpen ? (
-        <UpdateQuestion
-          // id={props.id}
-          // subjek_id={props.subjek_id}
-          // beasiswa_id={props.beasiswa_id}
-          // topik_id={props.topik_id}
-          // subtopik_id={props.subtopik_id}
-          isEditOpen={setIsEditOpen}
-          item={data}
-        />
+        <UpdateQuestion isEditOpen={setIsEditOpen} item={data} />
+      ) : (
+        ""
+      )}
+      {isDeleteOpen ? (
+        <DeleteModal isDeleteOpen={setIsDeleteOpen} item={data} />
       ) : (
         ""
       )}
@@ -79,12 +77,13 @@ export default function ListQuestion(props) {
             onClick={() => setIsEditOpen(true)}
             className="inline-flex bg-biru-tua items-center px-5 py-1 text-white rounded-md hover:bg-biru-muda"
           >
-            <FaEdit className="mr-[7px]"/>
+            <FaEdit className="mr-[7px]" />
             Edit
           </button>
-          <button 
-            onClick={()=> deleteData(props._id, props.pertanyaan)}
-            className="inline-flex bg-abu items-center px-3 py-1 text-white rounded-md hover:bg-abu-muda">
+          <button
+            onClick={() => setIsDeleteOpen(true)}
+            className="inline-flex bg-red-700 items-center px-3 py-1 text-white rounded-md hover:bg-red-500"
+          >
             <FaTrash className="mr-[7px]" />
             Hapus
           </button>

@@ -77,7 +77,7 @@ export default function UpdateQuestion(props) {
   };
 
   return (
-    <div className="absolute top-0 left-0 right-0">
+    <div className="absolute top-0 left-0 right-0 transition ease-in">
       <div className="bg-gray-800/50 px-20 py-14 flex justify-center h-screen w-full backdrop-blur-lg">
         <UpdateForm
           selectedQuestion={props.item.pertanyaan}
