@@ -10,11 +10,11 @@ export default function SearchBar(props) {
 
   return (
     <>
-      <div className="w-full h-[25vh] bg-merah flex flex-col items-center justify-center relative">
+      <div className="w-full h-[25vh] bg-biru flex flex-col items-center justify-center relative">
         <img src={bg} alt="bg" className="absolute left-0 top-0" />
 
         <p className="text-white font-bold text-3xl mb-5">
-          Cari Jawaban Terkait LPDP!
+          Smart Script Kemenkeu Prime
         </p>
         <input
           className="w-[50%] h-[60px] bg-white border-2 border-abu-muda rounded-lg shadow-lg text-hitam p-5"

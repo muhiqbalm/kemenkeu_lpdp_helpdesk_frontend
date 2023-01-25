@@ -13,8 +13,8 @@ export default function SearchResult(props) {
       <button
         className={` ${
           isClicked
-            ? "border-merah text-merah hover:text-coklat"
-            : "border-abu text-hitam hover:text-merah"
+            ? "border-biru-muda text-biru-muda hover:bg-gray-200"
+            : "border-abu text-hitam hover:text-biru-muda"
         } border w-full bg-white rounded-lg flex justify-between item items-center shadow-md`}
         onClick={() => HandleClick()}
       >
@@ -24,7 +24,7 @@ export default function SearchResult(props) {
         <FaChevronDown
           className={` ${
             isClicked ? "rotate-180" : ""
-          } text-merah w-[25px] h-auto mt-1 mr-6 hover:text-coklat hover:scale-110`}
+          } text-biru-muda w-[25px] h-auto mt-1 mr-6 hover:text-biru hover:scale-110`}
         />
       </button>
       <div

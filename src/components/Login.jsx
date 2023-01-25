@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import loginImg from "../assets/Login.svg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -12,16 +12,15 @@ export default function Login() {
   const navigate = useNavigate();
 
   const onSubmit = async () => {
-    const data = {
-      username,
-      password,
-    };
     if (username === "" || password === "") {
       toast.error("Username dan password akun wajib diisi!");
       console.log("Username dan password akun wajib diisi!");
     } else {
       axios
-        .post("http://localhost:5000/agent/login", data)
+        .post("http://localhost:5000/agent/login", {
+          username: username,
+          password: password,
+        })
         .then((res) => {
           if (res.status === 200) {
             toast.success("Login sukses!");
@@ -35,22 +34,8 @@ export default function Login() {
           console.log(err.response);
           toast.error(err.response.data.errors);
         });
-      // if (response.status === 200) {
-      //   toast.success("Login sukses!");
-      //   const { token } = response.data;
-      //   const tokenBase64 = btoa(token);
-      //   Cookies.set("token", tokenBase64, { expires: 1 });
-      //   navigate("/dashboard");
-      // } else {
-      //   toast.error(response.data.errors);
-      //   console.log(response);
-      // }
     }
   };
-
-  // useEffect(() => {
-  //   getResults();
-  // }, []);
 
   return (
     <div className="flex">
@@ -84,7 +69,7 @@ export default function Login() {
           />
 
           <button
-            className="w-[13vw] py-3 bg-merah hover:bg-darkred text-white rounded-full text-xl font-bold shadow-lg"
+            className="w-[13vw] py-3 bg-kuning hover:bg-kuning-tua text-white rounded-full text-xl font-bold shadow-lg"
             onClick={onSubmit}
             type="button"
           >

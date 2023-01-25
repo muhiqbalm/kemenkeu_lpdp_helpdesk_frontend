@@ -30,14 +30,33 @@ export default function Dashboard() {
   return (
     <>
       <div className="flex flex-col">
-        <Navbar />
+        <Navbar dashboard={true} />
         <SearchBar question={setQuery} />
         <div className="flex h-[75vh]">
           <div className="w-[26%] flex flex-col bg-white border-r border-abu-muda overflow-y-scroll overflow-x-hidden">
-            <SubjectOption subjectValue={setSubject} />
-            <ScholarshipOption id={subject} scholarshipValue={setScholarship} />
-            <TopicOption id={scholarship} topicValue={setTopic} />
-            <SubtopicOption id={topic} subtopicValue={setSubtopic} />
+            <SubjectOption
+              subjectValue={setSubject}
+              isHidden={true}
+              isUpdate={false}
+            />
+            <ScholarshipOption
+              id={subject}
+              scholarshipValue={setScholarship}
+              isHidden={true}
+              isUpdate={false}
+            />
+            <TopicOption
+              id={scholarship}
+              topicValue={setTopic}
+              isHidden={true}
+              isUpdate={false}
+            />
+            <SubtopicOption
+              id={topic}
+              subtopicValue={setSubtopic}
+              isHidden={true}
+              isUpdate={false}
+            />
           </div>
           <div className="flex flex-col w-full space-y-3">
             <p className="font-bold pt-10 px-20 pb-0 text-lg mb-0">

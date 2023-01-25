@@ -2,8 +2,8 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx,tsx}"],
   variants: {
     extend: {
-      backgroundColor: ['even'],
-    }
+      backgroundColor: ["even"],
+    },
   },
   theme: {
     extend: {
@@ -20,9 +20,11 @@ module.exports = {
         coklat: "#733535",
         maroon: "#AF2D30",
         darkred: "#733535",
-        gray: "#A7A7A7",
-        grey: "#B8BBC2",
-        lightgray: "#F5F5F5",
+        biru: "#0E4CBD",
+        "biru-muda": "#1455CD",
+        kuning: "#FAB414",
+        "kuning-tua": "#FA9E14",
+        "biru-tua": "#0C42A5",
       },
       borderRadius: {
         "4xl": "2rem",
@@ -39,7 +41,6 @@ module.exports = {
             letterSpacing: "-0.02em",
             fontWeight: "700",
           },
-    
         ],
       },
     },
