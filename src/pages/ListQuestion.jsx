@@ -63,13 +63,13 @@ const ListQuestion = () => {
   return (
     <>
       <Navbar listPertanyaan={true} />
-      <div className="flex flex-col w-full px-20 py-10 bg-biru">
+      <div className="flex flex-col w-full px-20 py-10 bg-biru-tua">
         <div className="grid grid-cols-3">
-          <p className="text-center bg-kuning text-biru-tua font-bold py-[10px]">
+          <p className="text-center bg-biru-muda shadow-md text-white font-bold py-[10px]">
             Pertanyaan
           </p>
-          <p className="text-center bg-kuning text-biru-tua font-bold py-[10px]">Jawaban</p>
-          <p className="text-center bg-kuning text-biru-tua font-bold py-[10px]">Action</p>
+          <p className="text-center bg-biru-muda shadow-md text-white font-bold py-[10px]">Jawaban</p>
+          <p className="text-center bg-biru-muda shadow-md text-white font-bold py-[10px]">Action</p>
         </div>
         {questions.map((question) => (
           <List

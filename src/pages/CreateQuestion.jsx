@@ -72,7 +72,7 @@ export default function CreateQuestion() {
   return (
     <div className="flex flex-col">
       <Navbar tambahPertanyaan={true} />
-      <div className="bg-merah px-20 py-14 flex justify-center h-[95vh]">
+      <div className="bg-biru-tua px-20 py-14 flex justify-center h-[95vh]">
         <SubmitForm
           questionValue={setQuestion}
           answerValue={setAnswer}
@@ -103,7 +103,7 @@ export default function CreateQuestion() {
           </div>
           <div className="bg-white border-t border-l border-abu h-[15%] flex items-center justify-center rounded-br-2xl">
             <button
-              className="h-max bg-merah py-2 px-14 text-white font-bold text-lg rounded-full hover:bg-coklat"
+              className="h-max bg-biru py-2 px-14 text-white font-bold text-lg rounded-full hover:bg-kuning"
               onClick={onSubmit}
             >
               SUBMIT
