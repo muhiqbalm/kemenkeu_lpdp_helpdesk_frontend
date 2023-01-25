@@ -6,6 +6,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import "../components/StyleList.css";
+import Cookies from "js-cookie";
 
 const ListQuestion = () => {
       const [question, setQuestion] = useState([]); 
@@ -50,7 +51,7 @@ const ListQuestion = () => {
           });
           getQuestion();
         } catch (error) {
-          console.log(error);
+          console.log(error.response.data);
         }
       };
       
