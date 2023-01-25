@@ -14,7 +14,11 @@ const ListQuestion = () => {
 
       //END OF MODAL
 
+      const token = atob(Cookies.get("token"));
+
+
       useEffect(() => {
+        console.log(token);
         getQuestion();
         deleteQuestion();
       }, []); 
