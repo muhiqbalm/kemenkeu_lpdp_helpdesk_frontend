@@ -56,6 +56,10 @@ const ListQuestion = () => {
     getQuestion();
   }, []);
 
+  useEffect(() => {
+    getQuestion();
+  }, [questions]);
+
   return (
     <>
       <Navbar listPertanyaan={true} />

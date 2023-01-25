@@ -3,6 +3,8 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import UpdateQuestion from "../pages/UpdateQuestion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 export default function ListQuestion(props) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -15,10 +17,40 @@ export default function ListQuestion(props) {
     console.log(data);
   }
 
-  useEffect(() => {
+  function deleteData () {
+  try {
+      axios.delete(`http://localhost:5000/question/${props.id}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Headers": "x-access-token",
+        "x-auth-token": token,
+    },
+    }).then((res) => {
+      if (res.status < 400) {
+        toast.success("Data pertanyaan berhasil dihapus!");
+        console.log(res);
+      }
+    })
+    .catch((err) => {
+      console.log(err.response);
+      toast.error(err.response.data.message);
+    });
     getData();
+  } catch (error) {
+    console.log(error);
+  }
+  };
+
+  const token = atob(Cookies.get("token"));
+
+
+  useEffect(() => {
+    console.log(token);
+    getData();
+    //deleteData();
     console.log(data);
-  }, []);
+  }, []); 
 
   return (
     <>
@@ -50,7 +82,9 @@ export default function ListQuestion(props) {
             <FaEdit />
             Edit
           </button>
-          <button className="inline-flex bg-red-700 items-center px-3 py-1 text-white rounded-md hover:bg-red-500">
+          <button 
+            onClick={()=> deleteData(props._id, props.pertanyaan)}
+            className="inline-flex bg-red-700 items-center px-3 py-1 text-white rounded-md hover:bg-red-500">
             <FaTrash className="mr-[7px]" />
             Hapus
           </button>
