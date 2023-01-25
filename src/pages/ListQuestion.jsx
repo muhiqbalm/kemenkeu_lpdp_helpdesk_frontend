@@ -5,6 +5,7 @@ import { BiEdit } from 'react-icons/bi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import Cookies from "js-cookie";
 
 const ListQuestion = () => {
       const [question, setQuestion] = useState([]); 
@@ -35,7 +36,14 @@ const ListQuestion = () => {
 
       const deleteQuestion = async (_id) => {
         try {
-          await axios.delete(`http://localhost:5000/question/${_id}`);
+          await axios.delete(`http://localhost:5000/question/${_id}`, 
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Headers": "x-access-token",
+              "x-auth-token": token,
+            },
+          });
           getQuestion();
         } catch (error) {
           console.log(error);
@@ -58,7 +66,7 @@ const ListQuestion = () => {
  
 
                 <div className="pb-10">
-                  <table className="w-full table-auto text-left shadow-lg bg-white border-separate-gray-200 table-auto">
+                  <table className="w-full text-left shadow-lg bg-white border-separate-gray-200 table-auto">
                       <tr className="text-white font-bold">
                         <th class="border px-15 py-1 bg-red-700 text-center">Pertanyaan</th>
                         <th class="border px-8 py-1 bg-red-700 text-center">Jawaban</th>
