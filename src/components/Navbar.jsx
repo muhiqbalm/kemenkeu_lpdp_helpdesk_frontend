@@ -1,9 +1,26 @@
 import React from "react";
 import LogoPrime from "../assets/logo-prime.svg";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 export default function Navbar(props) {
   const navigate = useNavigate();
+
+  const token = atob(Cookies.get("token"));
+
+  const LogOut = async () => {
+    try{
+      //const tokenBase64 = btoa(token);
+      Cookies.set("token", "", { expires: -1});
+      toast.success("Logout sukses!");
+      navigate("/");
+    }
+    catch (error){
+      console.log(error)
+    }
+    
+  }
 
   return (
     <>
@@ -41,7 +58,9 @@ export default function Navbar(props) {
             Tambah Pertanyaan
           </button>
         </div>
-        <button className="bg-white border border-biru rounded-md px-5 py-1 font-semibold text-biru hover:bg-biru hover:text-white">
+        <button 
+          onClick={LogOut}
+          className="bg-white border border-biru rounded-md px-5 py-1 font-semibold text-biru hover:bg-biru hover:text-white">
           Logout
         </button>
       </div>
