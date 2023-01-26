@@ -10,22 +10,20 @@ export default function Navbar(props) {
   const token = atob(Cookies.get("token"));
 
   const LogOut = async () => {
-    try{
+    try {
       //const tokenBase64 = btoa(token);
-      Cookies.set("token", "", { expires: -1});
+      Cookies.set("token", "", { expires: -1 });
       toast.success("Logout sukses!");
       navigate("/");
+    } catch (error) {
+      console.log(error);
     }
-    catch (error){
-      console.log(error)
-    }
-    
-  }
+  };
 
   return (
     <>
       <div className="bg-white h-[6vh] w-full flex items-center justify-between pl-10 pr-20 shadow-md">
-        <div className="flex text-hitam font-semibold items-center space-x-8">
+        <div className="flex text-hitam font-semibold items-center">
           <img src={LogoPrime} className="h-[4vh] w-auto mr-6" />
           <button
             onClick={() => navigate("/dashboard")}
@@ -58,9 +56,10 @@ export default function Navbar(props) {
             Tambah Pertanyaan
           </button>
         </div>
-        <button 
+        <button
           onClick={LogOut}
-          className="bg-white border border-biru rounded-md px-5 py-1 font-semibold text-biru hover:bg-biru hover:text-white">
+          className="bg-white border border-biru rounded-md px-5 py-1 font-semibold text-biru hover:bg-biru hover:text-white"
+        >
           Logout
         </button>
       </div>

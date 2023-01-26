@@ -32,8 +32,8 @@ export default function Dashboard() {
       <div className="flex flex-col">
         <Navbar dashboard={true} />
         <SearchBar question={setQuery} />
-        <div className="flex h-[75vh]">
-          <div className="w-[26%] flex flex-col bg-white border-r border-abu-muda overflow-y-scroll overflow-x-hidden">
+        <div className="flex h-[69vh]">
+          <div className="w-[25%] flex flex-col bg-white border-r border-abu-muda overflow-y-scroll overflow-x-hidden">
             <SubjectOption
               subjectValue={setSubject}
               isHidden={true}
@@ -58,7 +58,7 @@ export default function Dashboard() {
               isUpdate={false}
             />
           </div>
-          <div className="flex flex-col w-full space-y-3">
+          <div className="flex flex-col w-full space-y-3 overflow-y-scroll pb-10">
             <p className="font-bold pt-10 px-20 pb-0 text-lg mb-0">
               Hasil Pencarian
             </p>

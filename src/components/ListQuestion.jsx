@@ -9,43 +9,45 @@ import DeleteModal from "./DeleteModal";
 export default function ListQuestion(props) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  function getData() {
-    axios.get(`http://localhost:5000/question/${props.id}`).then((response) => {
-      setData(response.data.response);
-    });
-    console.log(data);
-  }
+  // function getData() {
+  //   axios
+  //     .get(`http://localhost:5000/question/${props.item._id}`)
+  //     .then((response) => {
+  //       setData(response.data.response);
+  //     });
+  //   console.log(data);
+  // }
 
-  const token = atob(Cookies.get("token"));
+  // const token = atob(Cookies.get("token"));
 
-  useEffect(() => {
-    console.log(token);
-    getData();
-    //deleteData();
-    console.log(data);
-  }, []);
+  // useEffect(() => {
+  //   console.log(token);
+  //   getData();
+  //   //deleteData();
+  //   console.log(data);
+  // }, []);
 
   return (
     <>
       {isEditOpen ? (
-        <UpdateQuestion isEditOpen={setIsEditOpen} item={data} />
+        <UpdateQuestion isEditOpen={setIsEditOpen} item={props.item} />
       ) : (
         ""
       )}
       {isDeleteOpen ? (
-        <DeleteModal isDeleteOpen={setIsDeleteOpen} item={data} />
+        <DeleteModal isDeleteOpen={setIsDeleteOpen} item={props.item} />
       ) : (
         ""
       )}
       <div className="flex w-full">
         <div className="w-[85vw] grid grid-cols-2">
           <p className="bg-white text-hitam p-5 text-justify border-b border-r border-gray-300">
-            {props.pertanyaan}
+            {props.item.pertanyaan}
           </p>
           <p className="bg-gray-100 text-hitam p-5 text-justify border-b border-r border-gray-300">
-            {props.jawaban}
+            {props.item.jawaban}
           </p>
         </div>
         <div className="w-[15vw] flex justify-center items-center gap-x-3 bg-white border-b border-gray-300">

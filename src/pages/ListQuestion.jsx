@@ -13,7 +13,7 @@ const ListQuestion = () => {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 6;
+  const itemsPerPage = 7;
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -44,7 +44,7 @@ const ListQuestion = () => {
   return (
     <>
       <Navbar listPertanyaan={true} />
-      <div className="flex flex-col w-full p-10 bg-biru-tua h-full">
+      <div className="flex flex-col w-full p-10 bg-biru-tua h-[94vh] relative">
         <div className="flex">
           <div className="w-[85vw] grid grid-cols-2">
             <p className="text-center bg-biru-muda shadow-md text-white font-bold py-[10px]">
@@ -58,36 +58,27 @@ const ListQuestion = () => {
             Action
           </p>
         </div>
-
-        {currentItems.map((question) => (
-          <List
-            pertanyaan={question.pertanyaan}
-            jawaban={question.jawaban}
-            id={question._id}
-            subjek_id={question.subjek_id}
-            beasiswa_id={question.beasiswa_id}
-            topik_id={question.topik_id}
-            subtopik_id={question.subtopik_id}
-            // item={question}
+        <div className="h-max max-h-[75vh] overflow-y-auto">
+          {currentItems.map((question) => (
+            <List item={question} />
+          ))}
+        </div>
+        <div className="absolute inset-x-0 bottom-0">
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="Next"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            pageCount={pageCount}
+            previousLabel="Prev"
+            renderOnZeroPageCount={null}
+            containerClassName="pagination"
+            pageLinkClassName="page-num"
+            previousLinkClassName="page-num-btn"
+            nextLinkClassName="page-num-btn"
+            activeLinkClassName="activePage"
           />
-          // <CekPagination pertanyaan={question.pertanyaan} />
-          // <p className="mb-10 text-white">{question.pertanyaan}</p>
-        ))}
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="Next"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          pageCount={pageCount}
-          previousLabel="Prev"
-          renderOnZeroPageCount={null}
-          containerClassName="pagination"
-          pageLinkClassName="page-num"
-          previousLinkClassName="page-num-btn"
-          nextLinkClassName="page-num-btn"
-          activeLinkClassName="activePage"
-          // className="text-blue"
-        />
+        </div>
       </div>
     </>
   );

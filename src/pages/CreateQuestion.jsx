@@ -70,16 +70,16 @@ export default function CreateQuestion() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <Navbar tambahPertanyaan={true} />
-      <div className="bg-biru-tua px-20 py-14 flex justify-center h-[95vh]">
+      <div className="bg-biru-tua px-20 py-14 flex justify-center h-[94vh]">
         <SubmitForm
           questionValue={setQuestion}
           answerValue={setAnswer}
           isBlank={blank}
         />
         <div className="flex flex-col">
-          <div className="w-max h-[85%] bg-white border-l border-abu rounded-r-2xl overflow-x-hidden overflow-y-scroll">
+          <div className="h-[85%] bg-white border-l border-abu rounded-r-2xl overflow-x-hidden overflow-y-scroll">
             <SubjectOption
               subjectValue={setSubject}
               isBlank={blank}
