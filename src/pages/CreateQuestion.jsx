@@ -2,12 +2,21 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
+
+//Category Options
 import SubjectOption from "../components/SubjectOption";
 import ScholarshipOption from "../components/ScholarshipOption";
 import TopicOption from "../components/TopicOption";
 import SubtopicOption from "../components/SubtopicOption";
+
 import SubmitForm from "../components/SubmitForm";
 import Navbar from "../components/Navbar";
+
+// Modal add category
+import AddSubjectModal from "../components/AddSubjectModal";
+import AddScholarshipModal from "../components/AddScholarshipModal";
+import AddTopicModal from "../components/AddTopicModal";
+import AddSubtopicModal from "../components/AddSubtopicModal";
 
 export default function CreateQuestion() {
   const [subject, setSubject] = useState("");
@@ -17,6 +26,17 @@ export default function CreateQuestion() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [blank, setBlank] = useState(false);
+
+  // Modal add category
+  const [addSubject, setAddSubject] = useState(false);
+  const [addScholarship, setAddScholarship] = useState(false);
+  const [addTopic, setAddTopic] = useState(false);
+  const [addSubtopic, setAddSubtopic] = useState(false);
+
+  // Check if category changed or not
+  const [isSubjectChanged, setIsSubjectChanged] = useState(false);
+  const [isScholarshipChanged, setIsScholarshipChanged] = useState(false);
+  const [isTopicChanged, setIsTopicChanged] = useState(false);
 
   const token = atob(Cookies.get("token"));
 
@@ -71,6 +91,14 @@ export default function CreateQuestion() {
 
   return (
     <div className="flex flex-col w-full">
+      {addSubject ? <AddSubjectModal addSubject={setAddSubject} /> : ""}
+      {addScholarship ? (
+        <AddScholarshipModal addScholarship={setAddScholarship} />
+      ) : (
+        ""
+      )}
+      {addTopic ? <AddTopicModal addTopic={setAddTopic} /> : ""}
+      {addSubtopic ? <AddSubtopicModal addSubtopic={setAddSubtopic} /> : ""}
       <Navbar tambahPertanyaan={true} />
       <div className="bg-biru-tua px-20 py-14 flex justify-center h-[94vh]">
         <SubmitForm
@@ -82,23 +110,37 @@ export default function CreateQuestion() {
           <div className="h-[85%] bg-white border-l border-abu rounded-r-2xl overflow-x-hidden overflow-y-scroll">
             <SubjectOption
               subjectValue={setSubject}
+              selectedData={""}
+              isChanged={setIsSubjectChanged}
               isBlank={blank}
-              hidden={false}
+              addSubject={setAddSubject}
+              addFunction={true}
             />
             <ScholarshipOption
               id={subject}
               scholarshipValue={setScholarship}
-              hidden={false}
+              selectedData={""}
+              isChanged={setIsScholarshipChanged}
+              subjectChanged={isSubjectChanged}
+              addScholarship={setAddScholarship}
+              addFunction={true}
             />
             <TopicOption
               id={scholarship}
               topicValue={setTopic}
-              hidden={false}
+              selectedData={""}
+              isChanged={setIsTopicChanged}
+              scholarshipChanged={isScholarshipChanged}
+              addTopic={setAddTopic}
+              addFunction={true}
             />
             <SubtopicOption
               id={topic}
               subtopicValue={setSubtopic}
-              hidden={false}
+              selectedData={""}
+              topicChanged={isTopicChanged}
+              addFunction={true}
+              addSubtopic={setAddSubtopic}
             />
           </div>
           <div className="bg-white border-t border-l border-abu h-[15%] flex items-center justify-center rounded-br-2xl">

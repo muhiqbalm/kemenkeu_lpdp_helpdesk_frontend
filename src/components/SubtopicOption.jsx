@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { FaPlus } from "react-icons/fa";
+import { HiPlus } from "react-icons/hi";
 import axios from "axios";
 
 export default function SubtopicOption(props) {
   const [subtopics, setSubtopics] = useState([]);
   const [selectedData, setSelectedData] = useState("");
-  const [filteredData, setFilteredData] = useState([]);
 
   function getData() {
     axios.get("http://localhost:5000/subtopic").then((response) => {
@@ -16,6 +15,7 @@ export default function SubtopicOption(props) {
 
   function handleClick(item) {
     setSelectedData(item);
+
     if (item === selectedData) {
       setSelectedData("");
     }
@@ -23,47 +23,58 @@ export default function SubtopicOption(props) {
 
   useEffect(() => {
     getData();
-    props.subtopicValue(selectedData);
-  }, [selectedData]);
+  }, [subtopics]);
 
   useEffect(() => {
-    if (props.isUpdate === false) {
+    props.subtopicValue(selectedData);
+  });
+
+  useEffect(() => {
+    setSelectedData(props.selectedData);
+  }, []);
+
+  useEffect(() => {
+    if (props.topicChanged === true) {
       setSelectedData("");
-    }
-    if (props.id === "") {
-      setSelectedData("");
-      props.subtopicValue("");
     }
   }, [props.id]);
 
-  useEffect(() => {
-    if (props.isUpdate === true) {
-      setSelectedData(props.selectedData);
-      props.subtopicValue(selectedData);
-    }
-  }, [props.selectedData]);
+  // function handleClick(item) {
+  //   setSelectedData(item);
+  //   if (item === selectedData) {
+  //     setSelectedData("");
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   getData();
+  //   props.subtopicValue(selectedData);
+  // }, [selectedData]);
+
+  // useEffect(() => {
+  //   if (props.isUpdate === false) {
+  //     setSelectedData("");
+  //   }
+  //   if (props.id === "") {
+  //     setSelectedData("");
+  //     props.subtopicValue("");
+  //   }
+  // }, [props.id]);
+
+  // useEffect(() => {
+  //   if (props.isUpdate === true) {
+  //     setSelectedData(props.selectedData);
+  //     props.subtopicValue(selectedData);
+  //   }
+  // }, [props.selectedData]);
 
   return (
-    <div
-      className={` ${
-        subtopics.filter((subtopic) => subtopic.topik_id.includes(props.id))
-          .length === 0
-          ? "hidden"
-          : ""
-      }`}
-    >
+    <div>
       <div
         className={` ${
           props.id === "" ? "hidden" : ""
-        } w-[400px] p-10 bg-[#E8E8E8] border border-abu-muda flex flex-col relative`}
+        } w-full p-10 pr-5 bg-[#E8E8E8] border-b border-abu-muda flex flex-col relative`}
       >
-        <button
-          className={` ${
-            props.isHidden ? "invisible" : ""
-          } rounded-lg bg-[#E8E8E8] w-8 h-8 text-xl text-abu flex items-center justify-center right-8 top-10 absolute hover:text-abu-gelap`}
-        >
-          <FaPlus />
-        </button>
         <p className="font-bold text-hitam text-lg">Subtopik Pertanyaan</p>
         <div className="font-semibold">
           {subtopics
@@ -80,6 +91,16 @@ export default function SubtopicOption(props) {
                 {subtopic.subtopik}
               </button>
             ))}
+          <button
+            className={` ${
+              props.addFunction
+                ? "text-abu-gelap bg-white border-abu hover:bg-gray-300 mt-3 px-8 pt-2.5 pb-3 border rounded-3xl shadow-md shadow-gray-200 hover:scale-105"
+                : "invisible"
+            }`}
+            onClick={() => props.addSubtopic(true)}
+          >
+            <HiPlus />
+          </button>
         </div>
       </div>
       {/* {selectedData !== "" ? (

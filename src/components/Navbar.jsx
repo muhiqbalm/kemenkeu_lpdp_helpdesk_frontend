@@ -22,7 +22,7 @@ export default function Navbar(props) {
 
   return (
     <>
-      <div className="bg-white h-[6vh] w-full flex items-center justify-between pl-10 pr-20 shadow-md">
+      <div className="bg-white h-[6vh] w-full flex items-center justify-between px-10 shadow-md">
         <div className="flex text-hitam font-semibold items-center">
           <img src={LogoPrime} className="h-[4vh] w-auto mr-6" />
           <button

@@ -15,8 +15,8 @@ export default function AddCategory() {
   return (
     <>
       <Navbar />
-      <div className="w-full h-[94vh] bg-biru p-10">
-        <div className="w-full h-full grid grid-cols-4 rounded-xl overflow-clip">
+      <div className="w-full h-[94vh] bg-biru p-20">
+        <div className="w-full h-full bg-white grid grid-cols-4 rounded-xl overflow-clip">
           <div className="w-full h-full border-r border-abu">
             <SubjectOption
               subjectValue={setSubject}
@@ -29,6 +29,24 @@ export default function AddCategory() {
             <ScholarshipOption
               id={subject}
               scholarshipValue={setScholarship}
+              isHidden={true}
+              isUpdate={false}
+            />
+            <input></input>
+          </div>
+          <div className="h-full border-r border-abu">
+            <TopicOption
+              id={scholarship}
+              topicValue={setTopic}
+              isHidden={true}
+              isUpdate={false}
+            />
+            <input></input>
+          </div>
+          <div className="h-full border-r border-abu">
+            <SubtopicOption
+              id={topic}
+              subtopicValue={setSubtopic}
               isHidden={true}
               isUpdate={false}
             />

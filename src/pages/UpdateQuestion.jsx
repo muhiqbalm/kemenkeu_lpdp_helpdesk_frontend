@@ -20,6 +20,11 @@ export default function UpdateQuestion(props) {
   const [answer, setAnswer] = useState("");
   const [data, setData] = useState([]);
 
+  // Check if category changed or not
+  const [isSubjectChanged, setIsSubjectChanged] = useState(false);
+  const [isScholarshipChanged, setIsScholarshipChanged] = useState(false);
+  const [isTopicChanged, setIsTopicChanged] = useState(false);
+
   const token = atob(Cookies.get("token"));
 
   useEffect(() => {
@@ -65,7 +70,7 @@ export default function UpdateQuestion(props) {
         )
         .then((res) => {
           if (res.status < 400) {
-            toast.success("Data pertanyaan berhasil ditambahkan!");
+            toast.success("Data pertanyaan berhasil diedit!");
             console.log(res);
             props.isEditOpen(false);
           }
@@ -90,30 +95,32 @@ export default function UpdateQuestion(props) {
           <div className="h-[85%] bg-white border-l border-abu rounded-r-2xl overflow-x-hidden overflow-y-scroll">
             <SubjectOption
               subjectValue={setSubject}
-              hidden={false}
-              isUpdate={true}
               selectedData={props.item.subjek_id}
+              isChanged={setIsSubjectChanged}
+              addFunction={true}
             />
             <ScholarshipOption
               id={subject}
               scholarshipValue={setScholarship}
-              hidden={false}
-              isUpdate={true}
               selectedData={props.item.beasiswa_id}
+              isChanged={setIsScholarshipChanged}
+              subjectChanged={isSubjectChanged}
+              addFunction={true}
             />
             <TopicOption
               id={scholarship}
               topicValue={setTopic}
-              hidden={false}
-              isUpdate={true}
               selectedData={props.item.topik_id}
+              isChanged={setIsTopicChanged}
+              scholarshipChanged={isScholarshipChanged}
+              addFunction={true}
             />
             <SubtopicOption
               id={topic}
               subtopicValue={setSubtopic}
-              hidden={false}
-              isUpdate={true}
               selectedData={props.item.subtopik_id}
+              topicChanged={isTopicChanged}
+              addFunction={true}
             />
           </div>
           <div className="bg-white border-t border-l border-abu h-[15%] flex items-center justify-center rounded-br-2xl space-x-8">
