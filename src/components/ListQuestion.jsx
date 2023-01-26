@@ -18,32 +18,6 @@ export default function ListQuestion(props) {
     console.log(data);
   }
 
-  function deleteData() {
-    try {
-      axios
-        .delete(`http://localhost:5000/question/${props.id}`, {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Headers": "x-access-token",
-            "x-auth-token": token,
-          },
-        })
-        .then((res) => {
-          if (res.status < 400) {
-            toast.success("Data pertanyaan berhasil dihapus!");
-            console.log(res);
-          }
-        })
-        .catch((err) => {
-          console.log(err.response);
-          toast.error(err.response.data.message);
-        });
-      getData();
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   const token = atob(Cookies.get("token"));
 
   useEffect(() => {
@@ -65,14 +39,16 @@ export default function ListQuestion(props) {
       ) : (
         ""
       )}
-      <div className="grid grid-cols-3">
-        <p className="bg-white text-hitam p-5 text-justify border border-biru-tua">
-          {data.pertanyaan}
-        </p>
-        <p className="bg-white text-hitam p-5 text-justify border border-biru-tua">
-          {data.jawaban}
-        </p>
-        <div className="flex justify-center items-center gap-x-3 bg-white border border-biru-tua">
+      <div className="flex w-full">
+        <div className="w-[85vw] grid grid-cols-2">
+          <p className="bg-white text-hitam p-5 text-justify border-b border-r border-gray-300">
+            {props.pertanyaan}
+          </p>
+          <p className="bg-gray-100 text-hitam p-5 text-justify border-b border-r border-gray-300">
+            {props.jawaban}
+          </p>
+        </div>
+        <div className="w-[15vw] flex justify-center items-center gap-x-3 bg-white border-b border-gray-300">
           <button
             onClick={() => setIsEditOpen(true)}
             className="inline-flex bg-biru-tua items-center px-5 py-1 text-white rounded-md hover:bg-biru-muda"
