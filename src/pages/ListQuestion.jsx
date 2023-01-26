@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import List from "../components/ListQuestion";
-import ReactPaginate from "https://cdn.skypack.dev/react-paginate@7.1.3";
-// import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
+import ReactPaginate from "react-paginate";
 import "../components/Pagination.css";
 
 const ListQuestion = () => {
@@ -74,8 +73,8 @@ const ListQuestion = () => {
             renderOnZeroPageCount={null}
             containerClassName="pagination"
             pageLinkClassName="page-num"
-            previousLinkClassName="page-num-btn"
-            nextLinkClassName="page-num-btn"
+            previousLinkClassName="prev-num-btn"
+            nextLinkClassName="next-num-btn"
             activeLinkClassName="activePage"
           />
         </div>

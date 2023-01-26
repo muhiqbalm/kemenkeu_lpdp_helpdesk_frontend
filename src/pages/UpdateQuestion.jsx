@@ -67,6 +67,7 @@ export default function UpdateQuestion(props) {
           if (res.status < 400) {
             toast.success("Data pertanyaan berhasil ditambahkan!");
             console.log(res);
+            props.isEditOpen(false);
           }
         })
         .catch((err) => {
@@ -77,8 +78,8 @@ export default function UpdateQuestion(props) {
   };
 
   return (
-    <div className="absolute top-0 left-0 right-0 transition ease-in">
-      <div className="bg-gray-800/50 px-20 py-14 flex justify-center h-screen w-full backdrop-blur-lg">
+    <div className="absolute inset-0 transition ease-in delay-150 z-10">
+      <div className="bg-gray-800/50 px-20 py-14 flex justify-center w-full backdrop-blur-lg h-[94vh] ">
         <UpdateForm
           selectedQuestion={props.item.pertanyaan}
           selectedAnswer={props.item.jawaban}

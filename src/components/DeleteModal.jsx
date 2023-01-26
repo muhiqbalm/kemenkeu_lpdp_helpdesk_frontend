@@ -39,7 +39,7 @@ export default function DeleteModal(props) {
       <div className="fixed bg-hitam/50 backdrop-blur-sm">
         <button className="w-screen h-screen"></button>
       </div>
-      <div className="w-[25vw] h-[45vh] bg-white rounded-2xl p-9 absolute top-5 shadow-lg flex flex-col items-center justify-center">
+      <div className="w-[25vw] h-[45vh] bg-white rounded-2xl p-9 absolute top-8 shadow-lg flex flex-col items-center justify-center">
         <BsExclamationCircle className="text-8xl text-kuning-tua mb-6" />
         <p className="font-bold text-2xl mb-2 text-hitam">Hapus Pertanyaan?</p>
         <p className="text-abu-gelap text-center mb-6">
