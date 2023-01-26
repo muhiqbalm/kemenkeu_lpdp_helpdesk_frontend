@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import List from "../components/ListQuestion";
 import ReactPaginate from "https://cdn.skypack.dev/react-paginate@7.1.3";
 // import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
+import "../components/Pagination.css";
 
 const ListQuestion = () => {
   const [questions, setQuestions] = useState([]);
