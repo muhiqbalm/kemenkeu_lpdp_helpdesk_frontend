@@ -51,7 +51,9 @@ export default function Login() {
       <div className="bg-white w-[60vw] flex justify-center items-center p-48">
         <form className="w-full flex flex-col">
           <p className="text-4xl font-bold mb-2">Selamat Datang di</p>
-          <p className="text-4xl font-bold mb-4">Smartscripts Kemenkeu Prime!</p>
+          <p className="text-4xl font-bold mb-4">
+            Smart Script Kemenkeu Prime!
+          </p>
 
           <p className="text-lg text-abu mb-20">Login dengan akun Anda</p>
 

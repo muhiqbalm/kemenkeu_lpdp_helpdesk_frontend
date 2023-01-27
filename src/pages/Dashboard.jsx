@@ -38,29 +38,6 @@ export default function Dashboard() {
         <SearchBar question={setQuery} />
         <div className="flex h-[69vh]">
           <div className="w-[26%] flex flex-col bg-white border-r border-abu-muda overflow-y-auto">
-            {/* <SubjectOption
-              subjectValue={setSubject}
-              isHidden={true}
-              isUpdate={false}
-            />
-            <ScholarshipOption
-              id={subject}
-              scholarshipValue={setScholarship}
-              isHidden={true}
-              isUpdate={false}
-            />
-            <TopicOption
-              id={scholarship}
-              topicValue={setTopic}
-              isHidden={true}
-              isUpdate={false}
-            />
-            <SubtopicOption
-              id={topic}
-              subtopicValue={setSubtopic}
-              isHidden={true}
-              isUpdate={false}
-            /> */}
             <SubjectOption
               subjectValue={setSubject}
               selectedData={""}
@@ -99,6 +76,7 @@ export default function Dashboard() {
               .filter((result) => result.subjek_id.includes(subject))
               .filter((result) => result.beasiswa_id.includes(scholarship))
               .filter((result) => result.topik_id.includes(topic))
+              .filter((result) => result.subtopik_id.includes(subtopic))
               .filter((result) =>
                 result.pertanyaan.toLowerCase().includes(query.toLowerCase())
               )
