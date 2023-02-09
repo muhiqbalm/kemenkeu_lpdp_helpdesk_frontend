@@ -69,9 +69,29 @@ export default function Dashboard() {
             />
           </div>
           <div className="flex flex-col w-full space-y-3 overflow-y-scroll pb-10">
-            <p className="font-bold pt-10 px-20 pb-0 text-lg mb-0">
-              Hasil Pencarian
-            </p>
+            <div className="w-full flex justify-between">
+              <p className="font-bold pt-10 px-20 pb-0 text-lg mb-0">
+                Hasil Pencarian
+              </p>
+              <p className="pt-10 px-20 pb-0 text-lg text-abu mb-0">
+                {
+                  results
+                    .filter((result) => result.subjek_id.includes(subject))
+                    .filter((result) =>
+                      result.beasiswa_id.includes(scholarship)
+                    )
+                    .filter((result) => result.topik_id.includes(topic))
+                    .filter((result) => result.subtopik_id.includes(subtopic))
+                    .filter((result) =>
+                      result.pertanyaan
+                        .toLowerCase()
+                        .includes(query.toLowerCase())
+                    ).length
+                }{" "}
+                hasil ditemukan
+              </p>
+            </div>
+
             {results
               .filter((result) => result.subjek_id.includes(subject))
               .filter((result) => result.beasiswa_id.includes(scholarship))

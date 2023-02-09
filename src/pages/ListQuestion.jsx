@@ -104,6 +104,7 @@ const ListQuestion = () => {
             previousLinkClassName="prev-num-btn"
             nextLinkClassName="next-num-btn"
             activeLinkClassName="activePage"
+            breakClassName="breakLabel"
           />
         </div>
       </div>

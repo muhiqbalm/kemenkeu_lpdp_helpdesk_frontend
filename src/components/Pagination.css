@@ -14,7 +14,8 @@
   font-weight: normal;
   color: #333;
   background-color: #dcdcdc;
-  margin: 2px;
+  margin-right: 2px;
+  margin-left: 2px;
 }
 
 .pagination .page-num:hover {
@@ -60,4 +61,15 @@
 
 .pagination .activePage:hover {
   background-color: #fa9e14;
+}
+
+.pagination .breakLabel {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: normal;
+  color: #333;
+  background-color: #dcdcdc;
+  margin-right: 8px;
+  margin-left: 8px;
 }
