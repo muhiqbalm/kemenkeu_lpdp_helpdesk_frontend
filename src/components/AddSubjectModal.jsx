@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
-import { BsExclamationCircle } from "react-icons/bs";
 
 export default function AddSubjectModal(props) {
   const token = atob(Cookies.get("token"));
@@ -51,7 +50,7 @@ export default function AddSubjectModal(props) {
           onClick={() => props.addSubject(false)}
         ></button>
       </div>
-      <div className="w-[25vw] h-[32vh] bg-white rounded-2xl absolute top-8 shadow-lg flex flex-col items-center justify-center py-10">
+      <div className="w-[30vw] h-[32vh] bg-white rounded-2xl absolute top-8 shadow-lg flex flex-col items-center justify-center py-10">
         <p className="font-bold text-2xl mb-10 text-hitam">Tambah Kategori</p>
         <div className="flex flex-col justify-start w-full mb-10 px-10">
           <p className="text-hitam mb-2 font-semibold">

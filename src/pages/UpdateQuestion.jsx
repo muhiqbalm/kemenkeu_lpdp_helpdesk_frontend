@@ -11,6 +11,12 @@ import UpdateForm from "../components/UpdateForm";
 import { useNavigate } from "react-router-dom";
 import { FaWindows } from "react-icons/fa";
 
+// Modal add category
+import AddSubjectModal from "../components/AddSubjectModal";
+import AddScholarshipModal from "../components/AddScholarshipModal";
+import AddTopicModal from "../components/AddTopicModal";
+import AddSubtopicModal from "../components/AddSubtopicModal";
+
 export default function UpdateQuestion(props) {
   const [subject, setSubject] = useState("");
   const [scholarship, setScholarship] = useState("");
@@ -19,6 +25,12 @@ export default function UpdateQuestion(props) {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [data, setData] = useState([]);
+
+  // Modal add category
+  const [addSubject, setAddSubject] = useState(false);
+  const [addScholarship, setAddScholarship] = useState(false);
+  const [addTopic, setAddTopic] = useState(false);
+  const [addSubtopic, setAddSubtopic] = useState(false);
 
   // Check if category changed or not
   const [isSubjectChanged, setIsSubjectChanged] = useState(false);
@@ -84,6 +96,14 @@ export default function UpdateQuestion(props) {
 
   return (
     <div className="absolute inset-0 transition ease-in delay-150 z-10">
+      {addSubject ? <AddSubjectModal addSubject={setAddSubject} /> : ""}
+      {addScholarship ? (
+        <AddScholarshipModal addScholarship={setAddScholarship} />
+      ) : (
+        ""
+      )}
+      {addTopic ? <AddTopicModal addTopic={setAddTopic} /> : ""}
+      {addSubtopic ? <AddSubtopicModal addSubtopic={setAddSubtopic} /> : ""}
       <div className="bg-gray-800/50 px-20 py-14 flex justify-center w-full backdrop-blur-lg h-[94vh] ">
         <UpdateForm
           selectedQuestion={props.item.pertanyaan}
@@ -94,6 +114,39 @@ export default function UpdateQuestion(props) {
         <div className="flex flex-col">
           <div className="h-[85%] bg-white border-l border-abu rounded-r-2xl overflow-x-hidden overflow-y-scroll">
             <SubjectOption
+              subjectValue={setSubject}
+              selectedData={props.item.subjek_id}
+              isChanged={setIsSubjectChanged}
+              addSubject={setAddSubject}
+              addFunction={true}
+            />
+            <ScholarshipOption
+              id={subject}
+              scholarshipValue={setScholarship}
+              selectedData={props.item.beasiswa_id}
+              isChanged={setIsScholarshipChanged}
+              subjectChanged={isSubjectChanged}
+              addScholarship={setAddScholarship}
+              addFunction={true}
+            />
+            <TopicOption
+              id={scholarship}
+              topicValue={setTopic}
+              selectedData={props.item.topik_id}
+              isChanged={setIsTopicChanged}
+              scholarshipChanged={isScholarshipChanged}
+              addTopic={setAddTopic}
+              addFunction={true}
+            />
+            <SubtopicOption
+              id={topic}
+              subtopicValue={setSubtopic}
+              selectedData={props.item.subtopik_id}
+              topicChanged={isTopicChanged}
+              addFunction={true}
+              addSubtopic={setAddSubtopic}
+            />
+            {/* <SubjectOption
               subjectValue={setSubject}
               selectedData={props.item.subjek_id}
               isChanged={setIsSubjectChanged}
@@ -121,7 +174,7 @@ export default function UpdateQuestion(props) {
               selectedData={props.item.subtopik_id}
               topicChanged={isTopicChanged}
               addFunction={true}
-            />
+            /> */}
           </div>
           <div className="bg-white border-t border-l border-abu h-[15%] flex items-center justify-center rounded-br-2xl space-x-8">
             <button
