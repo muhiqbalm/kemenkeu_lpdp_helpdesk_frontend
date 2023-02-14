@@ -7,6 +7,8 @@ import SubtopicOption from "../components/SubtopicOption";
 import SearchResult from "../components/SearchResult";
 import SearchBar from "../components/SearchBar";
 import Navbar from "../components/Navbar";
+import ReactPaginate from "react-paginate";
+import "../components/Pagination.css";
 
 export default function Dashboard() {
   const [subject, setSubject] = useState("");
@@ -15,10 +17,41 @@ export default function Dashboard() {
   const [subtopic, setSubtopic] = useState("");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([]);
 
   const [isSubjectChanged, setIsSubjectChanged] = useState(false);
   const [isScholarshipChanged, setIsScholarshipChanged] = useState(false);
   const [isTopicChanged, setIsTopicChanged] = useState(false);
+
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 5;
+
+  useEffect(() => {
+    setFilteredResults(
+      results.filter(
+        (result) =>
+          result.subjek_id.includes(subject) &&
+          result.beasiswa_id.includes(scholarship) &&
+          result.topik_id.includes(topic) &&
+          result.subtopik_id.includes(subtopic) &&
+          result.pertanyaan.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+  }, [results, subject, scholarship, topic, subtopic, query]);
+
+  useEffect(() => {
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(filteredResults.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(filteredResults.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, currentItems]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % results.length;
+    setItemOffset(newOffset);
+    console.log(currentItems);
+  };
 
   function getResults() {
     axios.get("http://localhost:5000/question").then((response) => {
@@ -37,7 +70,7 @@ export default function Dashboard() {
         <Navbar dashboard={true} />
         <SearchBar question={setQuery} />
         <div className="flex h-[69vh]">
-          <div className="w-[26%] flex flex-col bg-white border-r border-abu-muda overflow-y-auto">
+          <div className="w-[26%] flex flex-col bg-white overflow-y-auto">
             <SubjectOption
               subjectValue={setSubject}
               selectedData={""}
@@ -68,44 +101,38 @@ export default function Dashboard() {
               addFunction={false}
             />
           </div>
-          <div className="flex flex-col w-full space-y-3 overflow-y-scroll pb-10">
+          <div className="flex flex-col w-full space-y-3 overflow-y-scroll pb-10 border-l border-abu-muda">
             <div className="w-full flex justify-between">
               <p className="font-bold pt-10 px-20 pb-0 text-lg mb-0">
                 Hasil Pencarian
               </p>
               <p className="pt-10 px-20 pb-0 text-lg text-abu mb-0">
-                {
-                  results
-                    .filter((result) => result.subjek_id.includes(subject))
-                    .filter((result) =>
-                      result.beasiswa_id.includes(scholarship)
-                    )
-                    .filter((result) => result.topik_id.includes(topic))
-                    .filter((result) => result.subtopik_id.includes(subtopic))
-                    .filter((result) =>
-                      result.pertanyaan
-                        .toLowerCase()
-                        .includes(query.toLowerCase())
-                    ).length
-                }{" "}
-                hasil ditemukan
+                {filteredResults.length} hasil ditemukan
               </p>
             </div>
 
-            {results
-              .filter((result) => result.subjek_id.includes(subject))
-              .filter((result) => result.beasiswa_id.includes(scholarship))
-              .filter((result) => result.topik_id.includes(topic))
-              .filter((result) => result.subtopik_id.includes(subtopic))
-              .filter((result) =>
-                result.pertanyaan.toLowerCase().includes(query.toLowerCase())
-              )
-              .map((result) => (
-                <SearchResult
-                  pertanyaan={result.pertanyaan}
-                  jawaban={result.jawaban}
-                />
-              ))}
+            {currentItems.map((result) => (
+              <SearchResult
+                pertanyaan={result.pertanyaan}
+                jawaban={result.jawaban}
+              />
+            ))}
+
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel="Next"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={3}
+              pageCount={pageCount}
+              previousLabel="Prev"
+              renderOnZeroPageCount={null}
+              containerClassName="pagination"
+              pageLinkClassName="page-num"
+              previousLinkClassName="prev-num-btn"
+              nextLinkClassName="next-num-btn"
+              activeLinkClassName="activePage"
+              breakClassName="breakLabel"
+            />
           </div>
         </div>
       </div>

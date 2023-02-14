@@ -20,7 +20,7 @@
 
 .pagination .page-num:hover {
   color: black;
-  background-color: white;
+  background-color: #bbbbbb;
 }
 
 .prev-num-btn {
@@ -34,7 +34,7 @@
 }
 
 .prev-num-btn:hover {
-  background-color: white;
+  background-color: #bbbbbb;
 }
 
 .next-num-btn {
@@ -48,7 +48,7 @@
 }
 
 .next-num-btn:hover {
-  background-color: white;
+  background-color: #bbbbbb;
 }
 
 .pagination .activePage {
@@ -72,4 +72,8 @@
   background-color: #dcdcdc;
   margin-right: 8px;
   margin-left: 8px;
+}
+
+.breakLabel:hover {
+  background-color: #bbbbbb;
 }
