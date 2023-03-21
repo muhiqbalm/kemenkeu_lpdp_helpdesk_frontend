@@ -54,9 +54,11 @@ export default function Dashboard() {
   };
 
   function getResults() {
-    axios.get("http://localhost:5000/question").then((response) => {
-      setResults(response.data);
-    });
+    axios
+      .get("https://ss-kemenkeuprime-backend.vercel.app/question")
+      .then((response) => {
+        setResults(response.data);
+      });
     console.log(results);
   }
 

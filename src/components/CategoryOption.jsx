@@ -21,37 +21,47 @@ export default function CategoryOption() {
   const [results, setResults] = useState([]);
 
   function getSubject() {
-    axios.get("http://localhost:5000/subject").then((response) => {
-      setSubjects(response.data);
-    });
+    axios
+      .get("https://ss-kemenkeuprime-backend.vercel.app/subject")
+      .then((response) => {
+        setSubjects(response.data);
+      });
     console.log(subjects);
   }
 
   function getScholarship() {
-    axios.get("http://localhost:5000/scholarship").then((response) => {
-      setScholarships(response.data);
-    });
+    axios
+      .get("https://ss-kemenkeuprime-backend.vercel.app/scholarship")
+      .then((response) => {
+        setScholarships(response.data);
+      });
     console.log(scholarships);
   }
 
   function getTopic() {
-    axios.get("http://localhost:5000/topic").then((response) => {
-      setTopics(response.data);
-    });
+    axios
+      .get("https://ss-kemenkeuprime-backend.vercel.app/topic")
+      .then((response) => {
+        setTopics(response.data);
+      });
     console.log(topics);
   }
 
   function getSubtopic() {
-    axios.get("http://localhost:5000/subtopic").then((response) => {
-      setSubtopics(response.data);
-    });
+    axios
+      .get("https://ss-kemenkeuprime-backend.vercel.app/subtopic")
+      .then((response) => {
+        setSubtopics(response.data);
+      });
     console.log(subtopics);
   }
 
   function getResult() {
-    axios.get("http://localhost:5000/question").then((response) => {
-      setResults(response.data);
-    });
+    axios
+      .get("https://ss-kemenkeuprime-backend.vercel.app/question")
+      .then((response) => {
+        setResults(response.data);
+      });
     console.log(results);
   }
 

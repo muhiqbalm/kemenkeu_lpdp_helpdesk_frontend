@@ -28,7 +28,7 @@ export default function AddSubtopicModal(props) {
       try {
         axios
           .post(
-            `http://localhost:5000/subtopic`,
+            `https://ss-kemenkeuprime-backend.vercel.app/subtopic`,
             { topik_id: topic, subtopik: subtopic },
             {
               headers: {

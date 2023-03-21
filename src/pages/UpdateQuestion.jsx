@@ -44,9 +44,11 @@ export default function UpdateQuestion(props) {
   }, []);
 
   function getData() {
-    axios.get(`http://localhost:5000/question/${props.id}`).then((response) => {
-      setData(response.data.response);
-    });
+    axios
+      .get(`https://ss-kemenkeuprime-backend.vercel.app/question/${props.id}`)
+      .then((response) => {
+        setData(response.data.response);
+      });
     console.log(data);
   }
 
@@ -63,7 +65,7 @@ export default function UpdateQuestion(props) {
     } else {
       axios
         .put(
-          `http://localhost:5000/question/${props.item._id}`,
+          `https://ss-kemenkeuprime-backend.vercel.app/question/${props.item._id}`,
           {
             pertanyaan: question,
             jawaban: answer,

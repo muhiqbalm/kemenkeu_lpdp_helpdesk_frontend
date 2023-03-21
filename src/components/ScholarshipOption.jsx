@@ -8,9 +8,11 @@ export default function ScholarshipOption(props) {
   const [selectedData, setSelectedData] = useState("");
 
   function getData() {
-    axios.get("http://localhost:5000/scholarship").then((response) => {
-      setScholarships(response.data);
-    });
+    axios
+      .get("https://ss-kemenkeuprime-backend.vercel.app/scholarship")
+      .then((response) => {
+        setScholarships(response.data);
+      });
     // console.log(scholarships);
   }
 

@@ -7,9 +7,11 @@ export default function SubtopicOption(props) {
   const [selectedData, setSelectedData] = useState("");
 
   function getData() {
-    axios.get("http://localhost:5000/subtopic").then((response) => {
-      setSubtopics(response.data);
-    });
+    axios
+      .get("https://ss-kemenkeuprime-backend.vercel.app/subtopic")
+      .then((response) => {
+        setSubtopics(response.data);
+      });
     console.log(subtopics);
   }
 

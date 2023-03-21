@@ -46,7 +46,9 @@ const ListQuestion = () => {
   };
 
   const getQuestion = async () => {
-    const response = await axios.get("http://localhost:5000/question");
+    const response = await axios.get(
+      "https://ss-kemenkeuprime-backend.vercel.app/question"
+    );
     setQuestions(response.data);
   };
 

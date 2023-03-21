@@ -58,7 +58,7 @@ export default function CreateQuestion() {
     } else {
       axios
         .post(
-          "http://localhost:5000/question",
+          "https://ss-kemenkeuprime-backend.vercel.app/question",
           {
             pertanyaan: question,
             jawaban: answer,

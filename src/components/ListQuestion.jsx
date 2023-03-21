@@ -13,7 +13,7 @@ export default function ListQuestion(props) {
 
   // function getData() {
   //   axios
-  //     .get(`http://localhost:5000/question/${props.item._id}`)
+  //     .get(`https://ss-kemenkeuprime-backend.vercel.app/question/${props.item._id}`)
   //     .then((response) => {
   //       setData(response.data.response);
   //     });

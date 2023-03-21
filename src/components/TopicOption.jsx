@@ -7,9 +7,11 @@ export default function TopicOption(props) {
   const [selectedData, setSelectedData] = useState("");
 
   function getData() {
-    axios.get("http://localhost:5000/topic").then((response) => {
-      setTopics(response.data);
-    });
+    axios
+      .get("https://ss-kemenkeuprime-backend.vercel.app/topic")
+      .then((response) => {
+        setTopics(response.data);
+      });
     console.log(topics);
   }
 
