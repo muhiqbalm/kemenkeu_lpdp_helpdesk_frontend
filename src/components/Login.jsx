@@ -23,18 +23,10 @@ export default function Login() {
     } else {
       setText("Loading...");
       axios
-        .post(
-          "https://ss-kemenkeuprime-backend.vercel.app/agent/login",
-          {
-            username: username,
-            password: password,
-          },
-          {
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        )
+        .post("https://ss-kemenkeuprime-backend.vercel.app/agent/login", {
+          username: username,
+          password: password,
+        })
         .then((res) => {
           if (res.status < 400) {
             toast.success("Login sukses!");
