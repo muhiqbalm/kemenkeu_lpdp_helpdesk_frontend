@@ -31,8 +31,7 @@ export default function Login() {
           },
           {
             headers: {
-              "Access-Control-Allow-Origin":
-                "http://ss-kemenkeuprime.vercel.app",
+              "Access-Control-Allow-Origin": "*",
             },
           }
         )
