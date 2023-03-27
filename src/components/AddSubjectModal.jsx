@@ -14,7 +14,7 @@ export default function AddSubjectModal(props) {
       try {
         axios
           .post(
-            `https://ss-kemenkeuprime-backend.vercel.app/subject/`,
+            `https://zany-teal-snail-sari.cyclic.app/subject`,
             { subjek: subject },
             {
               headers: {

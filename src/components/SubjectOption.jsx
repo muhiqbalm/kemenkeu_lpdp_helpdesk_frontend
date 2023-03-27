@@ -8,7 +8,7 @@ export default function SubjectOption(props) {
 
   function getData() {
     axios
-      .get("https://ss-kemenkeuprime-backend.vercel.app/subject/")
+      .get("https://zany-teal-snail-sari.cyclic.app/subject")
       .then((response) => {
         setSubjects(response.data);
       });

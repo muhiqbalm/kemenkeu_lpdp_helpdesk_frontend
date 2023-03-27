@@ -25,7 +25,7 @@ export default function AddTopicModal(props) {
       try {
         axios
           .post(
-            `https://ss-kemenkeuprime-backend.vercel.app/topic/`,
+            `https://zany-teal-snail-sari.cyclic.app/topic`,
             { beasiswa_id: scholarship, topik: topic },
             {
               headers: {

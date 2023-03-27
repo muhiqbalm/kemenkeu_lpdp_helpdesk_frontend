@@ -20,7 +20,7 @@ export default function AddScholarshipModal(props) {
       try {
         axios
           .post(
-            `https://ss-kemenkeuprime-backend.vercel.app/scholarship/`,
+            `https://zany-teal-snail-sari.cyclic.app//scholarship`,
             { subjek_id: subject, beasiswa: scholarship },
             {
               headers: {

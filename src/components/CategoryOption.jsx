@@ -22,7 +22,7 @@ export default function CategoryOption() {
 
   function getSubject() {
     axios
-      .get("https://ss-kemenkeuprime-backend.vercel.app/subject/")
+      .get("https://zany-teal-snail-sari.cyclic.app/subject")
       .then((response) => {
         setSubjects(response.data);
       });
@@ -31,7 +31,7 @@ export default function CategoryOption() {
 
   function getScholarship() {
     axios
-      .get("https://ss-kemenkeuprime-backend.vercel.app/scholarship/")
+      .get("https://zany-teal-snail-sari.cyclic.app/scholarship")
       .then((response) => {
         setScholarships(response.data);
       });
@@ -40,7 +40,7 @@ export default function CategoryOption() {
 
   function getTopic() {
     axios
-      .get("https://ss-kemenkeuprime-backend.vercel.app/topic/")
+      .get("https://zany-teal-snail-sari.cyclic.app/topic")
       .then((response) => {
         setTopics(response.data);
       });
@@ -49,7 +49,7 @@ export default function CategoryOption() {
 
   function getSubtopic() {
     axios
-      .get("https://ss-kemenkeuprime-backend.vercel.app/subtopic/")
+      .get("https://zany-teal-snail-sari.cyclic.app/subtopic")
       .then((response) => {
         setSubtopics(response.data);
       });
@@ -58,7 +58,7 @@ export default function CategoryOption() {
 
   function getResult() {
     axios
-      .get("https://ss-kemenkeuprime-backend.vercel.app/question/")
+      .get("https://zany-teal-snail-sari.cyclic.app/question")
       .then((response) => {
         setResults(response.data);
       });

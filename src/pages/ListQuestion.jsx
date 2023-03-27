@@ -47,7 +47,7 @@ const ListQuestion = () => {
 
   const getQuestion = async () => {
     const response = await axios.get(
-      "https://ss-kemenkeuprime-backend.vercel.app/question/"
+      "https://zany-teal-snail-sari.cyclic.app/question"
     );
     setQuestions(response.data);
   };

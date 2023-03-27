@@ -58,7 +58,7 @@ export default function CreateQuestion() {
     } else {
       axios
         .post(
-          "https://ss-kemenkeuprime-backend.vercel.app/question/",
+          "https://zany-teal-snail-sari.cyclic.app/question",
           {
             pertanyaan: question,
             jawaban: answer,

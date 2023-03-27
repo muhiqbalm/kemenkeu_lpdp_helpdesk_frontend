@@ -8,7 +8,7 @@ export default function TopicOption(props) {
 
   function getData() {
     axios
-      .get("https://ss-kemenkeuprime-backend.vercel.app/topic/")
+      .get("https://zany-teal-snail-sari.cyclic.app/topic")
       .then((response) => {
         setTopics(response.data);
       });
