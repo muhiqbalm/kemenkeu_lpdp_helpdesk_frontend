@@ -14,7 +14,7 @@ export default function AddSubjectModal(props) {
       try {
         axios
           .post(
-            `https://ss-kemenkeuprime-backend.vercel.app/subject`,
+            `https://ss-kemenkeuprime-backend.vercel.app/subject/`,
             { subjek: subject },
             {
               headers: {

@@ -47,7 +47,7 @@ const ListQuestion = () => {
 
   const getQuestion = async () => {
     const response = await axios.get(
-      "https://ss-kemenkeuprime-backend.vercel.app/question"
+      "https://ss-kemenkeuprime-backend.vercel.app/question/"
     );
     setQuestions(response.data);
   };

@@ -23,7 +23,7 @@ export default function Login() {
     } else {
       setText("Loading...");
       axios
-        .post("https://ss-kemenkeuprime-backend.vercel.app/agent/login", {
+        .post("https://ss-kemenkeuprime-backend.vercel.app/agent/login/", {
           username: username,
           password: password,
         })

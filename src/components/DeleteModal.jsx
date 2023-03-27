@@ -11,7 +11,7 @@ export default function DeleteModal(props) {
     try {
       axios
         .delete(
-          `https://ss-kemenkeuprime-backend.vercel.app/question/${props.item._id}`,
+          `https://ss-kemenkeuprime-backend.vercel.app/question/${props.item._id}/`,
           {
             headers: {
               "Content-Type": "application/json",

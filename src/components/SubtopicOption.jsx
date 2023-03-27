@@ -8,7 +8,7 @@ export default function SubtopicOption(props) {
 
   function getData() {
     axios
-      .get("https://ss-kemenkeuprime-backend.vercel.app/subtopic")
+      .get("https://ss-kemenkeuprime-backend.vercel.app/subtopic/")
       .then((response) => {
         setSubtopics(response.data);
       });
