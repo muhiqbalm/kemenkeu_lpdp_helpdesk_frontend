@@ -43,6 +43,7 @@ export default function Login() {
             Cookies.set("token", tokenBase64, { expires: 1 });
             navigate("/dashboard");
           }
+          console.log(res.headers);
         })
         .catch((err) => {
           console.log(err.response);
