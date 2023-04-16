@@ -45,7 +45,7 @@ export default function UpdateQuestion(props) {
 
   function getData() {
     axios
-      .get(`https://ss-kemenkeuprime-backend.vercel.app/question/${props.id}`)
+      .get(`https://localhost:3000/question/${props.id}`)
       .then((response) => {
         setData(response.data.response);
       });

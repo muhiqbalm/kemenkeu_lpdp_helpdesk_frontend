@@ -12,7 +12,6 @@ export default function SubjectOption(props) {
       .then((response) => {
         setSubjects(response.data);
       });
-    console.log(subjects);
   }
 
   function handleClick(item) {

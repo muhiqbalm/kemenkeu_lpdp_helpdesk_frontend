@@ -63,7 +63,6 @@ export default function AddScholarshipModal(props) {
             Pilih subjek pengguna layanan terlebih dahulu
           </p>
         </div>
-        <p>{subject}</p>
         <SubjectOption
           subjectValue={setSubject}
           selectedData={""}

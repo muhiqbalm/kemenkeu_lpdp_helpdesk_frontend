@@ -12,7 +12,6 @@ export default function TopicOption(props) {
       .then((response) => {
         setTopics(response.data);
       });
-    console.log(topics);
   }
 
   function handleClick(item) {

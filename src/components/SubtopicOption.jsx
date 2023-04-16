@@ -12,7 +12,6 @@ export default function SubtopicOption(props) {
       .then((response) => {
         setSubtopics(response.data);
       });
-    console.log(subtopics);
   }
 
   function handleClick(item) {
