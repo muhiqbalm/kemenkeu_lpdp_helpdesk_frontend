@@ -42,7 +42,6 @@ const ListQuestion = () => {
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % questions.length;
     setItemOffset(newOffset);
-    console.log(currentItems);
   };
 
   const getQuestion = async () => {
