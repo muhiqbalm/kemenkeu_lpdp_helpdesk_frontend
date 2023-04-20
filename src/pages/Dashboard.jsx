@@ -26,7 +26,7 @@ export default function Dashboard() {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 6;
+  const itemsPerPage = 5;
 
   useEffect(() => {
     setFilteredResults(
@@ -105,7 +105,7 @@ export default function Dashboard() {
           </div>
           <div className="flex flex-col w-full h-full overflow-y-scroll border-l border-abu-muda justify-between">
             <div className="w-full">
-              <div className="flex justify-between mb-5">
+              <div className="flex justify-between mb-3">
                 <p className="font-bold pt-10 px-20 pb-0 text-lg mb-0">
                   Hasil Pencarian
                 </p>
