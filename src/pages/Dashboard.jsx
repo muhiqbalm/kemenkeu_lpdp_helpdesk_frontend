@@ -55,7 +55,7 @@ export default function Dashboard() {
 
   function getResults() {
     axios
-      .get("https://zany-teal-snail-sari.cyclic.app/question")
+      .get("https://ss-kemenkeuprime-backend.vercel.app/question")
       .then((response) => {
         setResults(response.data);
       });
