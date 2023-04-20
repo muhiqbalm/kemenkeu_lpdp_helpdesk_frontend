@@ -104,8 +104,8 @@ export default function Dashboard() {
             />
           </div>
           <div className="flex flex-col w-full h-full overflow-y-scroll border-l border-abu-muda justify-between">
-            <div className="w-full mb-10">
-              <div className="flex justify-between">
+            <div className="w-full">
+              <div className="flex justify-between mb-10">
                 <p className="font-bold pt-10 px-20 pb-0 text-lg mb-0">
                   Hasil Pencarian
                 </p>
