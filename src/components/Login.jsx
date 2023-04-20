@@ -23,16 +23,16 @@ export default function Login() {
     } else {
       setText("Loading...");
       fetch("https://ss-kemenkeuprime-backend.vercel.app/agent/login", {
-        Method: "POST",
-        Headers: {
+        method: "POST",
+        headers: {
           Accept: "application.json",
           "Content-Type": "application/json",
         },
-        Body: {
+        body: JSON.stringify({
           username: username,
           password: password,
-        },
-        Cache: "default",
+        }),
+        cache: "default",
       })
         //   axios
         //     .post("https://ss-kemenkeuprime-backend.vercel.app/agent/login", {
