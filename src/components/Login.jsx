@@ -39,7 +39,7 @@ export default function Login() {
         })
         .catch((err) => {
           console.log(err.response);
-          toast.error(err.response.data.errors);
+          toast.error(err.response);
           setText("LOGIN");
         });
     }
