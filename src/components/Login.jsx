@@ -22,23 +22,23 @@ export default function Login() {
       console.log("Username dan password akun wajib diisi!");
     } else {
       setText("Loading...");
-      fetch("https://ss-kemenkeuprime-backend.vercel.app/agent/login", {
-        method: "POST",
-        headers: {
-          Accept: "application.json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      // fetch("https://ss-kemenkeuprime-backend.vercel.app/agent/login", {
+      //   method: "POST",
+      //   headers: {
+      //     Accept: "application.json",
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     username: username,
+      //     password: password,
+      //   }),
+      //   cache: "default",
+      // })
+      axios
+        .post("https://ss-kemenkeuprime-backend.vercel.app/agent/login", {
           username: username,
           password: password,
-        }),
-        cache: "default",
-      })
-        //   axios
-        //     .post("https://ss-kemenkeuprime-backend.vercel.app/agent/login", {
-        //       username: username,
-        //       password: password,
-        //     })
+        })
         .then((res) => {
           if (res.status < 400) {
             toast.success("Login sukses!");
