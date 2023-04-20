@@ -114,7 +114,6 @@ export default function UpdateQuestion(props) {
           answerValue={setAnswer}
         />
         <div className="flex flex-col">
-          <p>{props.item._id}</p>
           <div className="h-[85%] bg-white border-l border-abu rounded-r-2xl overflow-x-hidden overflow-y-scroll">
             <SubjectOption
               subjectValue={setSubject}
