@@ -45,7 +45,7 @@ export default function UpdateQuestion(props) {
 
   function getData() {
     axios
-      .get(`https://localhost:3000/question/${props.id}`)
+      .get(`https://famous-bear-tiara.cyclic.app/question/${props.id}`)
       .then((response) => {
         setData(response.data.response);
       });
@@ -65,7 +65,7 @@ export default function UpdateQuestion(props) {
     } else {
       axios
         .put(
-          `https://famous-bear-tiara.cyclic.app/${props.item._id}`,
+          `https://famous-bear-tiara.cyclic.app/question/${props.item._id}`,
           {
             pertanyaan: question,
             jawaban: answer,
