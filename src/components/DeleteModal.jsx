@@ -10,13 +10,16 @@ export default function DeleteModal(props) {
   function deleteData() {
     try {
       axios
-        .delete(`https://famous-bear-tiara.cyclic.app${props.item._id}`, {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Headers": "x-access-token",
-            "x-auth-token": token,
-          },
-        })
+        .delete(
+          `https://famous-bear-tiara.cyclic.app/question/${props.item._id}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Headers": "x-access-token",
+              "x-auth-token": token,
+            },
+          }
+        )
         .then((res) => {
           if (res.status < 400) {
             toast.success("Data pertanyaan berhasil dihapus!");
