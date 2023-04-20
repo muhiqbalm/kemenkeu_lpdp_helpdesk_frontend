@@ -9,7 +9,7 @@ export default function ScholarshipOption(props) {
 
   function getData() {
     axios
-      .get("https://zany-teal-snail-sari.cyclic.app/scholarship")
+      .get("https://ss-kemenkeuprime-backend.vercel.app/scholarship")
       .then((response) => {
         setScholarships(response.data);
       });
