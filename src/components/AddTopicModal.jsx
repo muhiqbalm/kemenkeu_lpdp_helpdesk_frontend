@@ -25,7 +25,7 @@ export default function AddTopicModal(props) {
       try {
         axios
           .post(
-            `https://zany-teal-snail-sari.cyclic.app/topic`,
+            `https://famous-bear-tiara.cyclic.app/topic`,
             { beasiswa_id: scholarship, topik: topic },
             {
               headers: {

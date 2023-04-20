@@ -20,7 +20,7 @@ export default function AddScholarshipModal(props) {
       try {
         axios
           .post(
-            `https://zany-teal-snail-sari.cyclic.app//scholarship`,
+            `https://famous-bear-tiara.cyclic.app/scholarship`,
             { subjek_id: subject, beasiswa: scholarship },
             {
               headers: {

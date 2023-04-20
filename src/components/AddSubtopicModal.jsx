@@ -28,7 +28,7 @@ export default function AddSubtopicModal(props) {
       try {
         axios
           .post(
-            `https://zany-teal-snail-sari.cyclic.app/subtopic`,
+            `https://famous-bear-tiara.cyclic.app/subtopic`,
             { topik_id: topic, subtopik: subtopic },
             {
               headers: {

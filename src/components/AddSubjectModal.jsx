@@ -14,7 +14,7 @@ export default function AddSubjectModal(props) {
       try {
         axios
           .post(
-            `https://zany-teal-snail-sari.cyclic.app/subject`,
+            `https://famous-bear-tiara.cyclic.app/subject`,
             { subjek: subject },
             {
               headers: {

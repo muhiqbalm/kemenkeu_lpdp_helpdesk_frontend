@@ -65,7 +65,7 @@ export default function UpdateQuestion(props) {
     } else {
       axios
         .put(
-          `https://zany-teal-snail-sari.cyclic.app/${props.item._id}`,
+          `https://famous-bear-tiara.cyclic.app/${props.item._id}`,
           {
             pertanyaan: question,
             jawaban: answer,
